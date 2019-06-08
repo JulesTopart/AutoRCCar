@@ -53,7 +53,7 @@ class NeuralNetwork(object):
         self.model.setLayerSizes(np.int32(layer_sizes))
         self.model.setTrainMethod(cv2.ml.ANN_MLP_BACKPROP)
         self.model.setActivationFunction(cv2.ml.ANN_MLP_SIGMOID_SYM, 2, 1)
-        self.model.setTermCriteria((cv2.TERM_CRITERIA_COUNT, 300, 0.009))
+        self.model.setTermCriteria((cv2.TERM_CRITERIA_COUNT, 200, 0.08))
 
     def train(self, X, y):
         # set start time

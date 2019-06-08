@@ -76,7 +76,7 @@ class CollectTrainingData(object):
 
                     # get input from human driver
                     for event in pygame.event.get():
-                        if event.type == KEYDOWN:
+                        if event.type == KEYDOWN or event.type == KEYUP:
                             key_input = pygame.key.get_pressed()
 
                             # complex orders

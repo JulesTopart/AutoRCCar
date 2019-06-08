@@ -1,6 +1,6 @@
 int wheelPin[4] = {5,6,7,8}; //PWMR, PWML,DIRR,DIRL
 const bool invR = false, invL = false;
-const int vMin = 100, vMax = 150;
+const int vMin = 80, vMax = 255;
 // duration for output
 int time = 50;
 // initial command
