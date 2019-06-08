@@ -1,5 +1,6 @@
 int wheelPin[4] = {5,6,7,8}; //PWMR, PWML,DIRR,DIRL
-
+const bool invR = false, invL = false;
+const int vMin = 100, vMax = 150;
 // duration for output
 int time = 50;
 // initial command
@@ -24,65 +25,70 @@ void loop() {
 
 void right(int time){
  digitalWrite(wheelPin[2], HIGH);
- digitalWrite(wheelPin[3], HIGH);
- analogWrite(wheelPin[0], 50);
- analogWrite(wheelPin[1], 50);
+ digitalWrite(wheelPin[3], LOW);
+ analogWrite(wheelPin[0], vMin);
+ analogWrite(wheelPin[1], vMin);
   delay(time);
 }
 
 void left(int time){
  digitalWrite(wheelPin[2], LOW);
- digitalWrite(wheelPin[3], LOW);
- analogWrite(wheelPin[0], 50);
- analogWrite(wheelPin[1], 50);
+ digitalWrite(wheelPin[3], HIGH);
+ 
+ analogWrite(wheelPin[0], vMin);
+ analogWrite(wheelPin[1], vMin);
   delay(time);
 }
 
 void forward(int time){
  digitalWrite(wheelPin[2], HIGH);
- digitalWrite(wheelPin[3], LOW);
- analogWrite(wheelPin[0], 100);
- analogWrite(wheelPin[1], 100);
+ digitalWrite(wheelPin[3], HIGH);
+ analogWrite(wheelPin[0], vMax);
+ analogWrite(wheelPin[1], vMax);
  delay(time);
 }
 
 void reverse(int time){
- digitalWrite(wheelPin[2], LOW);
- digitalWrite(wheelPin[3], HIGH);
- analogWrite(wheelPin[0], 50);
- analogWrite(wheelPin[1], 50);
+
+  digitalWrite(wheelPin[2], LOW);
+ digitalWrite(wheelPin[3], LOW);
+ analogWrite(wheelPin[0], vMin );
+ analogWrite(wheelPin[1], vMin);
  delay(time);
 }
 
 void forward_right(int time){
  digitalWrite(wheelPin[2], HIGH);
- digitalWrite(wheelPin[3], LOW);
- analogWrite(wheelPin[0], 50);
- analogWrite(wheelPin[1], 100);
+ digitalWrite(wheelPin[3], HIGH);
+ analogWrite(wheelPin[0], vMax);
+ analogWrite(wheelPin[1], vMin);
   delay(time);
 }
 
 void reverse_right(int time){
- digitalWrite(wheelPin[2], LOW);
- digitalWrite(wheelPin[3], HIGH);
- analogWrite(wheelPin[0], 50);
- analogWrite(wheelPin[1], 100);
+
+  digitalWrite(wheelPin[2], LOW);
+ digitalWrite(wheelPin[3], LOW);
+ analogWrite(wheelPin[0], vMax);
+ analogWrite(wheelPin[1], vMin);
  delay(time);
 }
 
 void forward_left(int time){
- digitalWrite(wheelPin[2], HIGH);
- digitalWrite(wheelPin[3], LOW);
- analogWrite(wheelPin[0], 100);
- analogWrite(wheelPin[1], 50);
+
+  digitalWrite(wheelPin[2], HIGH);
+ digitalWrite(wheelPin[3], HIGH);
+ analogWrite(wheelPin[0], vMin);
+ analogWrite(wheelPin[1], vMax);
   delay(time);
 }
 
 void reverse_left(int time){
- digitalWrite(wheelPin[2], LOW);
- digitalWrite(wheelPin[3], HIGH);
- analogWrite(wheelPin[0], 100);
- analogWrite(wheelPin[1], 50);
+
+  digitalWrite(wheelPin[2], LOW);
+ digitalWrite(wheelPin[3], LOW);
+ analogWrite(wheelPin[0], vMin);
+ analogWrite(wheelPin[1], vMax);
  delay(time);
 }
 
