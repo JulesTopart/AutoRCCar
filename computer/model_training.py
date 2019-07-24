@@ -1,12 +1,8 @@
 __author__ = 'zhengwang'
 
 from model import load_data, NeuralNetwork
-import matplotlib.pyplot as plt
-import numpy as np
 
-line_data = []
-
-input_size = 120 * 320
+input_size = 320 * 120
 data_path = "training_data/*.npz"
 
 X_train, X_valid, y_train, y_valid = load_data(input_size, data_path)
